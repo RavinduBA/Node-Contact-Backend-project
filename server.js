@@ -12,6 +12,9 @@ app.use(express.json());
 app.use("/api/contacts", require("./routes/contactRoute"));
 //This means any request to /api/contacts will be handled by the router inside ./routes/contactRoute.js.
 
+app.use("/api/users", require("./routes/userRoute"));
+
+
 app.use(errorHandler);
 //Uses a custom error-handling middleware, which will handle any errors thrown in the application.
  
