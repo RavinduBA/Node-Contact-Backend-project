@@ -1,5 +1,8 @@
 const asyncHandler = require('express-async-handler');
 
+//This file defines the controller functions for handling requests related to contacts. It uses express-async-handler to handle asynchronous operations and errors.
+//express-async-handler helps handle errors in asynchronous functions without using try...catch blocks manually.
+
 //@desc Get all contacts 
 //@route GET /api/contacts
 //@access Public
