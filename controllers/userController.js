@@ -3,6 +3,7 @@ const User = require("../models/userModel");
 const  bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+//This file contains the logic for handling user registration, login, and retrieving user information.
 
 //@desc Register a user
 //@route POST /users/register
@@ -18,7 +19,7 @@ const registerUser = asyncHandler(async (req, res) =>{
         res.status(400);
         throw new Error("User already registered !");
     }
-    // Hash password
+    // Hash password using bycrypt library
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log("The hashed password is: ", hashedPassword) 
     const user = await User.create({
@@ -66,7 +67,9 @@ const loginUser = asyncHandler(async (req, res) =>{
         res.status(400);
         throw new Error("Invalid email or password !");
     }
-    
+    // Generates JWT token using jsonwebtoken.sign().
+    // Returns JWT token to the user for future authentication.
+    // The JWT contains username, email, id and is used for secure API access.
 });
 
 //@desc Current user info
